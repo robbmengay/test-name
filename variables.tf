@@ -1,31 +1,26 @@
 variable "namespace" {
   type        = string
-  default     = ""
-  description = "Namespace, which could be your organization name or abbreviation, e.g. 'gsp' or 'cp'"
+  description = "AWS object name, e.g. 'ec2' or 'iam'.\n(Required)"
 }
 
 variable "application" {
   type        = string
-  default     = ""
-  description = "Application name, e.g. 'mycool-api' or 'jenkins'"
+  description = "Application name, e.g. 'mycool-api' or 'jenkins'. \nSugetion: Use same name of github's project.\n(Required)"
 }
 
-variable "service" {
+variable "product" {
   type        = string
-  default     = ""
-  description = "Service that application is part of, e.g. 'transaction', 'payout'"
+  description = "Product that application is part of, e.g. 'webhook', 'pix'.\n(Required)"
 }
 
 variable "environment" {
   type        = string
-  default     = ""
-  description = "Environment, e.g. 'production', 'staging', 'homolog'"
+  description = "Environment, e.g. 'production', 'staging', 'homolog'.\n(Required)"
 }
 
 variable "business_owner" {
   type        = string
-  default     = ""
-  description = "Resource business owner tag for billing purposes"
+  description = "Payment area of the resource.\nCheck and follow definitions at [organization-owner](https://pag-zoop.atlassian.net/wiki/spaces/CE/pages/2055929939/Padroniza+o+Organizaton-Owner+e+Business+Owner)\n(Required)"
 }
 
 variable "attributes" {
@@ -43,4 +38,21 @@ variable "tags" {
 variable "delimiter" {
   type    = string
   default = "-"
+}
+
+variable "organization_owner" {
+  type        = string
+  description = "Big areas that englobes multiple business-owners.\nCheck and follow definitions at [organization-owner](https://pag-zoop.atlassian.net/wiki/spaces/CE/pages/2055929939/Padroniza+o+Organizaton-Owner+e+Business+Owner)\n(Required)"
+}
+
+variable "backup_status" {
+  type        = bool
+  description = "Inform if the resource will need a backup.\nDefined values: “true” or “false”.\nWhen “true”, communicate the area responsible for the backup to insert it."
+  default     = false
+}
+
+variable "monitoring_status" {
+  type        = bool
+  description = "Inform whether the resource will need to be monitored.\nDefined values: “true” or “false”.\nWhen “true”, communicate the area responsible for monitoring to insert it."
+  default     = false
 }

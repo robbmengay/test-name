@@ -1,5 +1,5 @@
 locals {
-  id                 = lower(join(var.delimiter, compact(concat(compact(tolist(["zp", ""])), list(var.environment, var.namespace, var.application), var.attributes))))
+  id                 = lower(join(var.delimiter, compact(concat(compact(tolist(["zp", ""])), tolist([var.environment, var.namespace, var.application]), var.attributes))))
   application        = lower(format("%v", var.application))
   product            = lower(format("%v", var.product))
   environment        = lower(format("%v", var.environment))

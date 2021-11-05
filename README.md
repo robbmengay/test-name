@@ -118,7 +118,7 @@ module.asg_label.domain_name
 
 | Name | Version |
 |------|---------|
-| terraform | ~> 1.0.10 |
+| terraform | ~> 1.0 |
 
 ## Providers
 

@@ -1,4 +1,6 @@
-# tf-module-label
+# Terraform Module | Label
+
+> A versão 2.x.x do módulo suporta o Terraform 1.0.x, caso precise utilizar um Terraform mais antigo a versão 1.x.x do módulo suporta o Terrraform 0.12.34.
 
 Terraform module designed to generate consistent label names and tags for
 resources, based on Zoop's AWS tagging model, available [here](https://pag-zoop.atlassian.net/wiki/spaces/CE/pages/1774354968/AWS+tagging#Padr%C3%A3o-tag%E2%80%99s-%E2%80%9Cproduct%E2%80%9D).
@@ -9,25 +11,25 @@ It's recommended to use one `tf-module-label` for each group of resources
 logically related:
 
 ```hcl
-  module "asg_label" {
-    source  = "git@github.com:getzoop/tf-module-label.git?ref=v1"
+module "asg_label" {
+  source  = "git@github.com:getzoop/tf-module-label.git?ref=v1"
 
-    application        = "transaction-api"
-    product            = "authorizer"
-    namespace          = "asg"
-    environment        = var.environment
-    business_owner     = "plataformas-transacionais"
-    organization_owner = "digital-payments"
+  application        = "transaction-api"
+  product            = "authorizer"
+  namespace          = "asg"
+  environment        = var.environment
+  business_owner     = "plataformas-transacionais"
+  organization_owner = "digital-payments"
 
-    tags = {
-      repo          = "https://github.com/getzoop/zoop-payments-api"
-      shutdown      = var.environment == "production" ? false : true
-      shutdown_hour = "21:00"
-      wakeup_hour   = "08:30"
-      disered       = var.asg_desired
-      min           = var.asg_min_size
-    }
+  tags = {
+    repo          = "https://github.com/getzoop/zoop-payments-api"
+    shutdown      = var.environment == "production" ? false : true
+    shutdown_hour = "21:00"
+    wakeup_hour   = "08:30"
+    disered       = var.asg_desired
+    min           = var.asg_min_size
   }
+}
 ```
 
 :exclamation: Shutdown tags `must` be configured, as describte at [this](https://pag-zoop.atlassian.net/wiki/spaces/OPS/pages/366347060/AWS+EC2+Sleep+Scheduler) guideline.
@@ -77,7 +79,7 @@ module "asg" {
 }
 ```
 
-## Cat Jumps: :smile_cat:
+## Cat Jumps :smile_cat:
 
 It's possible to instance values used by module, e.g.:
 
@@ -116,11 +118,21 @@ module.asg_label.domain_name
 
 | Name | Version |
 |------|---------|
-| terraform | ~> 0.12.31 |
+| terraform | ~> 1.0.10 |
 
 ## Providers
 
-No provider.
+| Name | Version |
+|------|---------|
+| [local](https://registry.terraform.io/providers/hashicorp/local/2.1.0) | ~> 2.1.0 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+No resources.
 
 ## Inputs
 

@@ -1,6 +1,6 @@
 # Terraform Module | Label
 
-> A versão 2.x.x do módulo suporta o Terraform 1.0.x, caso precise utilizar um Terraform mais antigo a versão 1.x.x do módulo suporta o Terrraform 0.12.34.
+> A versão 2.x.x do módulo suporta o Terraform 1.0.x, caso precise utilizar um Terraform mais antigo a versão 1.0.x do módulo suporta o Terrraform 0.12.34.
 
 Terraform module designed to generate consistent label names and tags for
 resources, based on Zoop's AWS tagging model, available [here](https://pag-zoop.atlassian.net/wiki/spaces/CE/pages/1774354968/AWS+tagging#Padr%C3%A3o-tag%E2%80%99s-%E2%80%9Cproduct%E2%80%9D).
@@ -118,7 +118,7 @@ module.asg_label.domain_name
 
 | Name | Version |
 |------|---------|
-| terraform | ~> 1.0.10 |
+| terraform | ~> 1.0.0 |
 
 ## Providers
 
